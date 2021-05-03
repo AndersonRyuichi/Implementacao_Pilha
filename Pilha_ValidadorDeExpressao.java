@@ -54,7 +54,7 @@ class Pilha{
         dados = new int[TamanhoDaPilha];
     }
 
-    public int TopoPilha() throws Exception{ //Retorna o topo da pilha
+    public int TopoPilha() throws Exception{ //Retorna o topo da pilha.
         if (PilhaVazia()){
             throw new Exception("Nao foi possivel retornar um elemento da Pilha, ela se encontra vazia");
         }
@@ -63,17 +63,17 @@ class Pilha{
         }
     }
 
-    public boolean PilhaVazia(){ //Verifica se a pilha esta cheia
+    public boolean PilhaVazia(){ //Verifica se a pilha esta cheia.
 
         return topo == -1;
     }
 
-    public boolean PilhaCheia(){ //Verifica se a pilha esta vazia
+    public boolean PilhaCheia(){ //Verifica se a pilha esta vazia.
 
         return topo >= dados.length - 1;
     }
 
-    public void empilhar(int elemento) throws Exception{ //Se a pilha estiver cheia aparece uma msg, sen ele empilha uma vez
+    public void empilhar(int elemento) throws Exception{ //Se a pilha estiver cheia aparece uma msg, sen ele empilha uma vez.
         if (PilhaCheia()){
             throw new Exception("Pilha esta cheia");
         }
@@ -83,7 +83,7 @@ class Pilha{
         }
     }
 
-    public int desempilhar() throws Exception{ //Se a Pilha estiver vazia aparece uma msg, sen ele desempilha uma vez
+    public int desempilhar() throws Exception{ //Se a Pilha estiver vazia aparece uma msg, sen ele desempilha uma vez.
         if (PilhaVazia()){
             throw new Exception("Pilha esta vazia");
         }
@@ -99,12 +99,12 @@ class Pilha{
 class ValidaExpressao{
     private Pilha pilha;
 
-    public boolean validar_uma_expressao(String expressao) throws Exception { //Valida a Expressao
+    public boolean validar_uma_expressao(String expressao) throws Exception { //Validacao de expressoes.
         pilha = new Pilha(20);
         for (int e = 0 ; e <= expressao.length()-1 ; e++){
             char c = expressao.charAt(e);
 
-            //Verifica se eh um caracter que abre (ex:`[`) ou fecha (ex:`]`)
+            //Verifica se eh um caracter que abre (ex:`[`) ou fecha (ex:`]`).
             if (abreSimbolo(c)){
                 pilha.empilhar((int)c);
             }
@@ -124,17 +124,17 @@ class ValidaExpressao{
         return pilha.PilhaVazia();
     }
 
-    public boolean abreSimbolo(char character){ //Characters que podem ser abertos
+    public boolean abreSimbolo(char character){ //Characters que podem ser abertos.
 
         return character == '(' || character == '[' || character == '{';
     }
 
-    public boolean fechaSimbolo(char character){ //Characters que podem ser respectivamente fechados
+    public boolean fechaSimbolo(char character){ //Characters que podem ser respectivamente fechados.
 
         return character == ')' || character == ']' || character == '}';
     }
 
-    public boolean oposto(char abrir, char fechar){ //Characters opostos respectivamente iguais
+    public boolean oposto(char abrir, char fechar){ //Characters opostos respectivamente iguais.
 
         return abrir == '(' && fechar == ')' || abrir == '[' && fechar == ']' || abrir == '{' && fechar == '}';
     }
